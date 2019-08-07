@@ -7,7 +7,13 @@ class TodoList extends Component {
     return (
         <ul className="list-group">
             {this.props.todo.map( list =>
-                <TodoItem key={list.id} id={list.id} name={list.text} />
+                <TodoItem 
+                  key={list.id} 
+                  id={list.id} 
+                  name={list.text}
+                  delTodo={this.props.delTodo}
+                  editTodo={this.props.editTodo}
+                />
             )}
         </ul>
     )

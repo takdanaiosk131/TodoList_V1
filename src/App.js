@@ -12,15 +12,31 @@ class App extends Component {
 
   addTodo = (todoText) => {
     const {todo,nextId} = this.state
-    this.setState({
+    todoText && this.setState({
       todo: [
         {id: nextId, text: todoText},
         ...todo
       ],
       nextId: nextId+1
     })
+  }
 
-    console.log(this.state.todo)
+  editTodo = (todoId) => {
+    console.log(todoId)
+    const {todo} = this.state
+    const result = todo.map(list => todoId.id === list.id ? {id: todoId.id,text: todoId.text} : list)
+    console.log(result)
+    this.setState({
+      todo: result
+    })
+  }
+
+  delTodo = (todoId) => {
+    const {todo} = this.state
+    const result = todo.filter(list => todoId !== list.id)
+    this.setState({
+      todo: result
+    })
   }
 
   render(){
@@ -36,7 +52,7 @@ class App extends Component {
         <div className="row ">
             <div className="col-md-4"></div>
             <div className="col-md-4">
-              <TodoList todo={this.state.todo} />
+              <TodoList todo={this.state.todo} delTodo={this.delTodo} editTodo={this.editTodo} />
             </div> 
             <div className="col-md-4"></div>    
         </div>
