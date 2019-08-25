@@ -1,9 +1,10 @@
 import React,{Component} from 'react';
+import Header from './component/Header'
 import Form from './component/Form'
 import TodoList from './component/TodoList'
 
 class App extends Component {
-
+  
   state = {
     nextId: 0,
     todo: [],
@@ -41,22 +42,27 @@ class App extends Component {
 
   render(){
     return (
-      <div className="container">
-        <div className="row">
-            <div className="col-md-4"></div>
-            <div className="col-md-4">
-              <Form addTodo={this.addTodo}/>
-            </div> 
-            <div className="col-md-4"></div>
+      <div>
+        <Header />
+        <div className="container">
+          <br />
+          <br />
+          <br />
+          <div className="row">
+              <div className="col-md-4"></div>
+              <div className="col-md-4">
+                <Form addTodo={this.addTodo}/>
+              </div> 
+              <div className="col-md-4"></div>
+          </div>
+          <div className="row ">
+              <div className="col-md-4"></div>
+              <div className="col-md-4">
+                <TodoList todo={this.state.todo} delTodo={this.delTodo} editTodo={this.editTodo} />
+              </div> 
+              <div className="col-md-4"></div>    
+          </div>
         </div>
-        <div className="row ">
-            <div className="col-md-4"></div>
-            <div className="col-md-4">
-              <TodoList todo={this.state.todo} delTodo={this.delTodo} editTodo={this.editTodo} />
-            </div> 
-            <div className="col-md-4"></div>    
-        </div>
-        
       </div>
     )
   }
