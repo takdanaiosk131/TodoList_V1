@@ -11,11 +11,11 @@ ToDo list is a simple web application to save Your daily tasks in order not to m
 
 <h2>Technologies</h2>
 <ul>
+    <li>React</li>
     <li>HTML</li>
     <li>CSS</li>
     <li>JavaScript(ES)</li>
     <li>Bootstrap 4</li>
-    <li>React</li>
 </ul>
 
 <h2>Example</h2>
